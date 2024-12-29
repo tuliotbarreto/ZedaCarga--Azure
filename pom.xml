@@ -72,7 +72,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
-			<optional>true</optional>
+			<optional>false</optional>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -87,7 +87,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<optional>false</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -132,6 +132,25 @@
 				</configuration>
 			</plugin>
 
+			 <plugins>
+        <!-- Spring Boot Maven Plugin -->
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+        
+        <!-- Maven Surefire Plugin para executar os testes -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M5</version> <!-- Use a versão mais recente possível -->
+            <configuration>
+                <forkCount>1</forkCount> <!-- Controle a quantidade de forks, se necessário -->
+                <reuseForks>false</reuseForks> <!-- Desabilita o reuso de forks para testes isolados -->
+            </configuration>
+        </plugin>
+    </plugins>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -142,9 +161,9 @@
 		        <artifactId>azure-spring-apps-maven-plugin</artifactId>
 		        <version>1.19.0</version>
 		        <configuration>
-		            <subscriptionId>7991821b-ba7b-4371-9bd0-2f894fa5aeee</subscriptionId>
-		            <resourceGroup>zedacarga</resourceGroup>
-		            <clusterName>zedacarga</clusterName>
+		            <subscriptionId>007ef93c-ec16-4ac6-bb86-a31753d88897</subscriptionId>
+		            <resourceGroup>Zedacarga</resourceGroup>
+		            <clusterName>Zedacarga</clusterName>
 		            <sku>Standard</sku>
 		            <appName>zedacarga</appName>
 		            <isPublic>true</isPublic>
