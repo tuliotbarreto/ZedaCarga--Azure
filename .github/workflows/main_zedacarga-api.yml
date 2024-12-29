@@ -3,11 +3,20 @@
 
 name: Build and deploy JAR app to Azure Web App - zedacarga-api
 
+
+
+
 on:
   push:
     branches:
       - main
   workflow_dispatch:
+env:
+  AZURE_WEBAPP_NAME: zedacarga-deployzedacarga
+  AZURE.WEBAPP_PACKAGE_PATH: "."
+  DEPLOYMENT_SLOT: deployzedacarga
+  AZURE_RESOURCEGROUP_NAME: Zedacarga
+
 
 jobs:
   build:
