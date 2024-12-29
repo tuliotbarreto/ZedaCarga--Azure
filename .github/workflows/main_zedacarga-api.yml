@@ -3,22 +3,14 @@
 
 name: Build and deploy JAR app to Azure Web App - zedacarga-api
 
-
-
-
 on:
-  push
-
-env:
-  AZURE_WEBAPP_NAME: zedacarga-deployzedacarga
-  AZURE.WEBAPP_PACKAGE_PATH: "."
-  DEPLOYMENT_SLOT: deployzedacarga
-  DOTNET_VERSION: '3.1'
-  AZURE_RESOURCEGROUP_NAME: Zedacarga
-
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: windows-latest
 
     steps:
