@@ -17,8 +17,8 @@
 
     <properties>
         <java.version>17</java.version>
-    	<spring.profiles.active>test</spring.profiles.active>
-
+        <!-- Perfil de testes ativo -->
+        <spring.profiles.active>test</spring.profiles.active>
     </properties>
 
     <dependencies>
@@ -31,6 +31,8 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <!-- Desabilitando para testes, se necessário -->
+            <optional>true</optional>
         </dependency>
 
         <dependency>
@@ -70,12 +72,14 @@
             <optional>false</optional>
         </dependency>
 
+        <!-- Banco H2 em memória para testes -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Dependência do Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -110,6 +114,15 @@
             <artifactId>java-dotenv</artifactId>
             <version>5.2.2</version>
         </dependency>
+
+        <!-- Removendo o PostgreSQL para os testes (caso não necessário) -->
+        <!--
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        -->
     </dependencies>
 
     <build>
